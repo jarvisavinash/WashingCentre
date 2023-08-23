@@ -3,19 +3,31 @@ import { BrowserRouter, Router, Route, Routes} from 'react-router-dom';
 import Login from './Login';
 import Register from './Register';
 import Services from './Services';
-import { Navbar } from 'react-bootstrap';
+import NavbarComponent from './NavbarComponent';
+import Footer from './Footer';
+import Home from './Home';
 
 const Routing = () => {
   return (
+    <div>
+    
     <BrowserRouter>
+
+    < NavbarComponent />
+
       <Routes>
-        <Route path='/nav' element={ < Navbar /> } />
+      <Route path="/" element={ <Home /> } />
+        <Route path="/nav" element={ < NavbarComponent /> } />
         <Route path="/login" element={< Login />} />
         <Route path="/register" element={< Register />} />
         <Route path="/services" element={< Services/>} />
         {/* Add more routes if needed */}
       </Routes>
+
+      < Footer />
+
     </BrowserRouter>
+    </div>
   );
 };
 

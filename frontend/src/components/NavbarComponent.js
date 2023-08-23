@@ -1,7 +1,8 @@
 import React from 'react';
 import { Navbar, Nav, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const NavbarComponent = () => {
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
@@ -21,28 +22,23 @@ const Navbar = () => {
         <div class="collapse navbar-collapse" id="navbarButtonsExample">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#">Dashboard</a>
+              <a class="nav-link"><Link to="/" style={{ color: "black", textDecoration: 'none' }} > Home </Link></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"><Link to="/login" style={{ color: "black", textDecoration: 'none' }} > Login </Link></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"><Link to="/register" style={{ color: "black", textDecoration: 'none' }} > Register </Link></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"><Link to="/services" style={{ color: "black", textDecoration: 'none' }} > Services </Link></a>
             </li>
           </ul>
-    
-          <div class="d-flex align-items-center">
-            <button type="button" class="btn btn-link px-3 me-2">
-              Login
-            </button>
-            <button type="button" class="btn btn-primary me-3">
-              Sign up for free
-            </button>
-            <a
-              class="btn btn-dark px-3"
-              href="https://github.com/mdbootstrap/mdb-ui-kit"
-              role="button"
-              ><i class="fab fa-github"></i
-            ></a>
-          </div>
         </div>
       </div>
     </nav>
   );
 };
 
-export default Navbar;
+export default NavbarComponent;
+

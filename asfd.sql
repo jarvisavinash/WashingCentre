@@ -26,28 +26,28 @@ VALUES ('Fake Service 5', 120, 'A unique fake service description.');
 
 
 -- Assuming ServiceId 1 exists (replace with an existing ServiceId)
-INSERT INTO TimeSlots (ServiceId, StartTime, EndTime)
-VALUES (1, '2023-08-25 09:00:00', '2023-08-25 10:00:00');
+INSERT INTO TimeSlots (ServiceId, StartTime, EndTime, Availability)
+VALUES (1, '2023-08-25 09:00:00', '2023-08-25 10:00:00', True);
 
 -- Assuming ServiceId 2 exists (replace with an existing ServiceId)
-INSERT INTO TimeSlots (ServiceId, StartTime, EndTime)
-VALUES (2, '2023-08-25 14:00:00', '2023-08-25 15:00:00');
+INSERT INTO TimeSlots (ServiceId, StartTime, EndTime, Availability)
+VALUES (2, '2023-08-25 14:00:00', '2023-08-25 15:00:00', False);
 
 -- Assuming ServiceId 3 exists (replace with an existing ServiceId)
-INSERT INTO TimeSlots (ServiceId, StartTime, EndTime)
-VALUES (3, '2023-08-26 11:30:00', '2023-08-26 12:30:00');
+INSERT INTO TimeSlots (ServiceId, StartTime, EndTime, Availability)
+VALUES (3, '2023-08-26 11:30:00', '2023-08-26 12:30:00', True);
 
 -- Assuming ServiceId 4 exists (replace with an existing ServiceId)
-INSERT INTO TimeSlots (ServiceId, StartTime, EndTime)
-VALUES (4, '2023-08-27 16:30:00', '2023-08-27 17:30:00');
+INSERT INTO TimeSlots (ServiceId, StartTime, EndTime, Availability)
+VALUES (4, '2023-08-27 16:30:00', '2023-08-27 17:30:00', False);
 
 -- Assuming ServiceId 5 exists (replace with an existing ServiceId)
-INSERT INTO TimeSlots (ServiceId, StartTime, EndTime)
-VALUES (5, '2023-08-28 08:00:00', '2023-08-28 09:00:00');
+INSERT INTO TimeSlots (ServiceId, StartTime, EndTime, Availability)
+VALUES (5, '2023-08-28 08:00:00', '2023-08-28 09:00:00', True);
 
 -- Assuming ServiceId 6 exists (replace with an existing ServiceId)
-INSERT INTO TimeSlots (ServiceId, StartTime, EndTime)
-VALUES (6, '2023-08-29 13:00:00', '2023-08-29 14:00:00');
+INSERT INTO TimeSlots (ServiceId, StartTime, EndTime, Availability)
+VALUES (6, '2023-08-29 13:00:00', '2023-08-29 14:00:00', False);
 
 
 

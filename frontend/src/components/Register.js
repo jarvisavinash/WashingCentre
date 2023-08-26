@@ -33,7 +33,7 @@ function Register() {
           const response = await axios.post('https://localhost:7148/api/User/Register', user); // Adjust the API endpoint as needed
           if (response.status === 200) {
             console.log('User created successfully');
-            navigate("/bookervices"); // Redirect upon successful register
+            navigate("/services"); // Redirect upon successful register
             // Reset the form
             setUser({
               firstName:'',

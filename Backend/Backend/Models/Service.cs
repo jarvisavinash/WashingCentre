@@ -6,9 +6,9 @@ namespace Backend.Models
     [Table("services")]
     public class Service
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string? ServiceName { get; set; }
-        public int Charges { get; set; }
+        public int? Charges { get; set; }
         public string? Description { get; set; }
 
         public ICollection<TimeSlot>? TimeSlots { get; set; } // Navigation property

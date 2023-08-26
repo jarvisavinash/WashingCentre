@@ -27,17 +27,30 @@ namespace Backend.Controllers
         [HttpPost]
         public async Task<ActionResult<Booking>> CreateBooking(Booking booking)
         {
-            bool isTimeSlotAvailable = await IsTimeSlotAvailable(booking.TimeSlotId);
+            var timeSlot = await _context.TimeSlots.FindAsync(booking.TimeSlotId);
 
-            if (!isTimeSlotAvailable)
+            if (timeSlot == null)
+            {
+                return NotFound("Time slot not found.");
+            }
+
+            if (timeSlot.Availability == false) // Check if Availability is false
             {
                 return BadRequest("Selected time slot is not available.");
             }
+
+            booking.BookingDate = DateTime.Now; // Set BookingDate to current datetime
 
             _context.Bookings.Add(booking);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetBookings", new { id = booking.Id }, booking);
+        }
+
+
+        private Task<bool> IsTimeSlotAvailable(int? timeSlotId)
+        {
+            throw new NotImplementedException();
         }
 
         private async Task<bool> IsTimeSlotAvailable(int timeSlotId)

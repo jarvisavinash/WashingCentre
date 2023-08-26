@@ -2,7 +2,7 @@
 {
     public class AvailableTimeSlot
     {
-        public string TimeSlot { get; set; }
+        public string? TimeSlot { get; set; }
     }
 
 }

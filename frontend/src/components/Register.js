@@ -122,8 +122,8 @@ function Register() {
                                 <button type="submit" className="btn btn-primary btn-lg">Register</button>
                               </div>
 
-                              <p class="text-center text-muted mt-5 mb-0">Have already an account?  
-                              <a><Link to="/login" className="link-success" style={{ color: "green", textDecoration: 'none' }}> Login </Link></a></p>
+                              <p className="text-center text-muted mt-5 mb-0">Have already an account?  
+                              <Link to="/login" className="link-success" style={{ color: "green", textDecoration: 'none' }}> Login </Link></p>
                 
                             </form>
                 

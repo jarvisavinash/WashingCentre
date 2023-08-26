@@ -34,7 +34,7 @@ const NavbarComponent = () => {
               <a className="nav-link"><Link to="/services" style={{ color: "black", textDecoration: 'none' }} > Services </Link></a>
             </li>
             <li className="nav-item">
-              <a className="nav-link"><Link to="/bookervices" style={{ color: "black", textDecoration: 'none' }} > BookService </Link></a>
+              <a className="nav-link"><Link to="/bookservices" style={{ color: "black", textDecoration: 'none' }} > BookService </Link></a>
             </li>
           </ul>
         </div>

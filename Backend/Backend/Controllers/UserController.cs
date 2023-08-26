@@ -37,7 +37,7 @@ namespace Backend.Controllers
 
                 if (user != null)
                 {
-                    return Ok();
+                    return Ok(new { UserId = user.Id }); // Include the user ID in the response
                 }
                 else
                 {
@@ -46,6 +46,7 @@ namespace Backend.Controllers
             }
             return BadRequest();
         }
+
 
         [HttpPost("register")] // Endpoint for user registration
         public async Task<IActionResult> RegisterUser(User user)

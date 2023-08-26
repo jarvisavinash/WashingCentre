@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Router, Route, Routes} from 'react-router-dom';
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import Login from './Login';
 import Register from './Register';
 import Services from './Services';
@@ -22,7 +22,7 @@ const Routing = () => {
         <Route path="/login" element={< Login />} />
         <Route path="/register" element={< Register />} />
         <Route path="/services" element={< Services/>} />
-        <Route path="/bookervices" element={< BookService/>} />
+        <Route path="/bookservices" element={< BookService/>} />
         {/* Add more routes if needed */}
       </Routes>
 

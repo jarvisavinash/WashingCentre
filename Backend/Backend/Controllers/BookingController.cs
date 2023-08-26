@@ -1,4 +1,7 @@
-﻿using Backend.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Backend.Data;
 using Backend.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -22,8 +25,6 @@ namespace Backend.Controllers
             return await _context.Bookings.ToListAsync();
         }
 
-        // Other actions (POST, PUT, DELETE) for managing bookings
-
         [HttpPost]
         public async Task<ActionResult<Booking>> CreateBooking(Booking booking)
         {
@@ -34,37 +35,24 @@ namespace Backend.Controllers
                 return NotFound("Time slot not found.");
             }
 
-            if (timeSlot.Availability == false) // Check if Availability is false
+            if ((bool)!timeSlot.Availability) // Check if Availability is false
             {
                 return BadRequest("Selected time slot is not available.");
             }
 
             booking.BookingDate = DateTime.Now; // Set BookingDate to current datetime
 
+            // Update the availability status of the time slot
+            timeSlot.Availability = false;
+
+            // Save changes to the database context
+            await _context.SaveChangesAsync();
+
             _context.Bookings.Add(booking);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetBookings", new { id = booking.Id }, booking);
-        }
+            return Ok();    // CreatedAtAction("GetBookings", new { id = booking.Id }, booking);
 
-
-        private Task<bool> IsTimeSlotAvailable(int? timeSlotId)
-        {
-            throw new NotImplementedException();
-        }
-
-        private async Task<bool> IsTimeSlotAvailable(int timeSlotId)
-        {
-            var timeSlot = await _context.TimeSlots.FindAsync(timeSlotId);
-
-            if (timeSlot == null)
-            {
-                return false; // Time slot not found
-            }
-
-            bool isBooked = await _context.Bookings.AnyAsync(b => b.TimeSlotId == timeSlotId);
-
-            return !isBooked; // Time slot is available if not booked
         }
     }
 }

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from './AuthContext'; // Import the AuthContext
 
 const Login = () => {
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const navigate = useNavigate();
+  const { login } = useAuth(); // Get the login function from the AuthContext
 
   const handleLogin = async () => {
     try {
@@ -18,7 +19,10 @@ const Login = () => {
 
       if (response.status === 200) {
         console.log('Login successful');
-        navigate("/bookervices"); // Redirect upon successful login
+        const userId = response.data.UserId;
+
+        login(userId); // Call the login function from context
+        navigate("/bookservices"); // Redirect upon successful login
       } else {
         console.log('Login failed');
       }
@@ -26,6 +30,7 @@ const Login = () => {
       console.error('An error occurred:', error);
     }
   };
+  
 
   return (
 <section className="vh-100">

@@ -30,6 +30,8 @@ namespace Backend.Models
         [Required]
         [Column("password")] // Specify the actual field name in the database
         public string? Password { get; set; }
+
+        public ICollection<Booking>? Bookings { get; set; }
     }
 
 

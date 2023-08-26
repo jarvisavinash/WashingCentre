@@ -1512,11 +1512,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Optiplex\\source\\repos\\Backend\\Backend\\Backend.csproj",
+      "projectUniqueName": "F:\\Projects\\WashingCentre\\Backend\\Backend\\Backend.csproj",
       "projectName": "Backend",
-      "projectPath": "C:\\Users\\Optiplex\\source\\repos\\Backend\\Backend\\Backend.csproj",
+      "projectPath": "F:\\Projects\\WashingCentre\\Backend\\Backend\\Backend.csproj",
       "packagesPath": "C:\\Users\\Optiplex\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Optiplex\\source\\repos\\Backend\\Backend\\obj\\",
+      "outputPath": "F:\\Projects\\WashingCentre\\Backend\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Optiplex\\AppData\\Roaming\\NuGet\\NuGet.Config",

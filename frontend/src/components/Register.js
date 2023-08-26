@@ -1,9 +1,12 @@
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 
 
 function Register() {
+  
+  const navigate = useNavigate();
 
     const [user, setUser] = useState({
         firstName:'',
@@ -27,9 +30,10 @@ function Register() {
         e.preventDefault();
     
         try {
-          const response = await axios.post('https://localhost:7148/api/User', user); // Adjust the API endpoint as needed
+          const response = await axios.post('https://localhost:7148/api/User/Register', user); // Adjust the API endpoint as needed
           if (response.status === 200) {
             console.log('User created successfully');
+            navigate("/bookervices"); // Redirect upon successful register
             // Reset the form
             setUser({
               firstName:'',
@@ -117,6 +121,9 @@ function Register() {
                               <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                 <button type="submit" className="btn btn-primary btn-lg">Register</button>
                               </div>
+
+                              <p class="text-center text-muted mt-5 mb-0">Have already an account?  
+                              <a><Link to="/login" className="link-success" style={{ color: "green", textDecoration: 'none' }}> Login </Link></a></p>
                 
                             </form>
                 

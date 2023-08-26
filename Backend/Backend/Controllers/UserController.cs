@@ -46,5 +46,23 @@ namespace Backend.Controllers
             }
             return BadRequest();
         }
+
+        [HttpPost("register")] // Endpoint for user registration
+        public async Task<IActionResult> RegisterUser(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                // Check if the email is already registered
+                if (await _context.Users.AnyAsync(u => u.Email == user.Email))
+                {
+                    return Conflict("Email already registered");
+                }
+
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
+            return BadRequest();
+        }
     }
 }

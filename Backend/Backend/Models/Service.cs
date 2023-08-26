@@ -6,19 +6,15 @@ namespace Backend.Models
     [Table("services")]
     public class Service
     {
-        [Key]
-        public int? Id { get; set; }
-
-        [Required]
-        [Column("serviceName")]
+        public int Id { get; set; }
         public string? ServiceName { get; set; }
-
-        [Required]
-        [Column("charges")]
         public int Charges { get; set; }
-
-        [Required]
-        [Column("description")]
         public string? Description { get; set; }
+
+        public ICollection<TimeSlot>? TimeSlots { get; set; } // Navigation property
+        public ICollection<Booking>? Bookings { get; set; } // Inverse navigation property
+
     }
+
 }
+

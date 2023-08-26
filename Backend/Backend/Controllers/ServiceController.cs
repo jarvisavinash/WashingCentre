@@ -1,31 +1,30 @@
-﻿using Backend.Data;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
+using Backend.Models;
+using Backend.Data;
 
 namespace Backend.Controllers
 {
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.EntityFrameworkCore;
-    using System.Linq;
-    using System.Threading.Tasks;
-
-    [ApiController]
     [Route("api/[controller]")]
-    public class ServiceController : ControllerBase
+    [ApiController]
+    public class ServicesController : ControllerBase
     {
-        private readonly AppDbContext _dbContext;
+        private readonly AppDbContext _context;
 
-        public ServiceController(AppDbContext dbContext)
+        public ServicesController(AppDbContext context)
         {
-            _dbContext = dbContext;
+            _context = context;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetServices()
+        public async Task<ActionResult<IEnumerable<Service>>> GetServices()
         {
-            var services = await _dbContext.Services.ToListAsync();
-            return Ok(services);
+            return await _context.Services.ToListAsync();
         }
-    }
 
+        // Other actions (POST, PUT, DELETE) for managing services
+    }
 }
+

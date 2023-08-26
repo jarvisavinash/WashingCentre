@@ -6,6 +6,7 @@ import Services from './Services';
 import NavbarComponent from './NavbarComponent';
 import Footer from './Footer';
 import Home from './Home';
+import BookService from './BookService';
 
 const Routing = () => {
   return (
@@ -21,6 +22,7 @@ const Routing = () => {
         <Route path="/login" element={< Login />} />
         <Route path="/register" element={< Register />} />
         <Route path="/services" element={< Services/>} />
+        <Route path="/bookervices" element={< BookService/>} />
         {/* Add more routes if needed */}
       </Routes>
 
